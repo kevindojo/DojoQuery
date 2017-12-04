@@ -1,0 +1,54 @@
+<html>
+    <head>
+
+    </head>
+
+    <h1 id= 'title'> Hello World</h1>
+
+
+    <h2id id= 'subtitle'> Hover over me</h2>
+</html>
+
+
+    <script>
+        
+        var $dojo = function(id){
+            this.id = document.getElementById(id);
+
+            this.click =  function(callbackY){
+                this.id.addEventListener('click', callbackY);
+                            // nice function, its built in
+
+            };
+
+            this.hover = function(hoverin, hoverout) {
+                this.id.addEventListener("mouseover", hoverin);
+                this.id.addEventListener("mouseout", hoverout);
+                                            //this phrase has to stay that way....
+                                                // changed quote and the function did not fire...
+            };
+
+
+
+
+
+            return this
+        }
+
+            //call back function
+        $dojo('title').click(function(){
+            console.log(this);
+        
+        })
+
+        $dojo('title').hover(function(){
+            console.log("Mouse in the house"); 
+        }, 
+        
+        function(){
+            console.log("Mouse out of the hosue");
+            
+        })
+
+
+    </script>
